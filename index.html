@@ -1,17 +1,104 @@
-<DOCTYPE HTML>
-<html>
-    <head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EnJoY music WITH @THARV</title>
-    <link rel="icon" href="fun.png" type="image/png">
-     <link rel="stylesheet" href="styles.css">
-
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .dashboard {
+            width: 80%;
+          border:2px solid;
+            max-width: 1200px;
+            margin: auto;
+            padding: 25px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+        
+            margin: 0;
+            font-size: 2.5em;
+            color: #343a40;
+        }
+        .projects {
+          
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+          width:70%;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, color 0.3s;
+        }
+        .project-card:hover {
+            border:1px solid grey;
+            background-color: lightcyan;
+            transform: scale(1.02) rotate(360deg);
+            box-shadow: 0 4px 15px black;
+        }
+        .project-title {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+            color: #495057;
+            transition: color 5s;
+        }
+        .project-card:hover .project-title {
+            color: black;
+        }
+        .project-link {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .project-link:hover {
+            text-decoration: underline;
+            
+        }
+    </style>
+</head>
 <body>
-<h1> Checkout my Project </h1>
-<a href='https://ask1012.github.io/Music_with_ask/'>  Music Website</a><br>
-<a href='https://ask1012.github.io/college-canteen-/'>  College Canteen</a><br> 
-<a href='https://ask1012.github.io/SQL-chatBot/'>  Sql chatBot</a>
+    <div class="dashboard">
+        <div class="header">
+            <h1>◾Projects</h1><hr>
+        </div>
+        <div class="projects">
+            <!-- Example Project Card -->
+            <div class="project-card">
+                <h2 class="project-title">Music site</h2><hr>
+                <p><a href="https://ask1012.github.io/Music_with_ask/" class="project-link">View Project</a></p>
+            </div>
+            <!-- Add more project cards as needed -->
+            <div class="project-card">
+                <h2 class="project-title">Colleege canteen</h2><hr>
+                <p><a href="https://ask1012.github.io/college-canteen-/" class="project-link">View Project</a></p>
+            </div>
+            <!-- Repeat the above block for more projects -->
+           <div class="project-card">
+                <h2 class="project-title">SQL chatBot</h2><hr>
+                <p><a href="https://ask1012.github.io/SQL-chatBot/" class="project-link">View Project</a></p>
+            </div>
+ </div>
+    </div>
 </body>
 </html>
