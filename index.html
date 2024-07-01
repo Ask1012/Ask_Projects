@@ -3,102 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Dashboard</title>
+    <title>Coder Portfolio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            color: darkgrey;
+            background-color: #f9f9f9;
+            background-color:black;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .dashboard {
-            width: 80%;
-          border:2px solid;
-            max-width: 1200px;
-            margin: auto;
-            padding: 25px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .header h1 {
-        
             margin: 0;
-            font-size: 2.5em;
-            color: #343a40;
+            padding: 0;
         }
-        .projects {
-          
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+
+        nav ul li {
+            margin: 0 15px;
         }
-        .project-card {
-          width:70%;
-            padding: 20px;
-            border: 1px solid #dee2e6;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, color 0.3s;
-        }
-        .project-card:hover {
-            border:1px solid grey;
-            background-color: lightcyan;
-            transform: scale(1.02) rotate(360deg);
-            box-shadow: 0 4px 15px black;
-        }
-        .project-title {
-            font-size: 1.5em;
-            margin: 0 0 10px;
-            color: #495057;
-            transition: color 5s;
-        }
-        .project-card:hover .project-title {
-            color: black;
-        }
-        .project-link {
+
+        nav ul li a {
+            color: white;
             text-decoration: none;
-            color: #007bff;
             font-weight: bold;
-            transition: color 0.3s;
         }
-        .project-link:hover {
-            text-decoration: underline;
-            
+
+        #hero {
+            background: url('hero.jpg') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        #about, #projects, #skills, #contact {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .project-card {
+            background-color: white;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            color:black;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form label, form input, form textarea {
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            width: 80%;
+        }
+        #imgcontainer{position: absolute;
+            top:60px;
+            left:120px;
+            width:130px;
+            height:170px;
+            border-radius:15px;
+             }
     </style>
 </head>
 <body>
-    <div class="dashboard">
-        <div class="header">
-            <h1>◾Projects</h1><hr>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<img id="imgcontainer" src="ask.jpg" >
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm Atharv Kumbhar</h1>
+            <p>A passionate coder and developer.</p>
+            <a href="#projects" class="btn">View My Work</a>
         </div>
-        <div class="projects">
-            <!-- Example Project Card -->
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p style="color:white; border-radius:20px; background-color:grey; padding:20px;">
+I am a B.Sc Computer Science student at Sadguru Gadge Maharaj College (SGM) in Karad city, Maharashtra, India. With a strong foundation in computer science, I have honed my skills in various programming languages and technologies, including JavaScript, Java, CSS, HTML, and SQL.<br>
+In addition to my technical skills, I possess strong soft skills such as problem-solving, teamwork, and effective communication. I am passionate about learning and continuously improving my abilities to stay updated with the latest advancements in the field of technology.</p> </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <!-- Repeat this block for each project -->
             <div class="project-card">
-                <h2 class="project-title">Music site</h2><hr>
-                <p><a href="https://ask1012.github.io/Music_with_ask/" class="project-link">View Project</a></p>
+                <h3>Music site</h3>
+                 <a href="https://ask1012.github.io/Music_with_ask/" class="btn">View Project</a>
             </div>
-            <!-- Add more project cards as needed -->
             <div class="project-card">
-                <h2 class="project-title">College canteen</h2><hr>
-                <p><a href="https://ask1012.github.io/college-canteen-/" class="project-link">View Project</a></p>
+                <h3>College Canteen</h3>
+                 <a href="https://ask1012.github.io/college-canteen-/" class="btn">View Project</a>
             </div>
-            <!-- Repeat the above block for more projects -->
-           <div class="project-card">
-                <h2 class="project-title">SQL chatBot</h2><hr>
-                <p><a href="https://ask1012.github.io/SQL-chatBot/" class="project-link">View Project</a></p>
+            <div class="project-card">
+                <h3>SQL Generator</h3>
+                  <a href="https://ask1012.github.io/SQL-chatBot/" class="btn">View Project</a>
             </div>
- </div>
-    </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul style="text-align:left;">
+            <li>JavaScript</li>
+            <li>HTML & CSS</li>
+            <li>JAVA</li>
+            <li>SQL</li>
+            <!-- Add more skills as needed -->
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form action="#">
+            <label for="name">Name:</label>         
+            <input type="text" id="name" name="name" placeholder=" Nmae...";required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder=" E-mail..." required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Example of a simple smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
