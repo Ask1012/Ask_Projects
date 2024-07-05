@@ -1,69 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitchen Orders</title>
+    <title>Kitchen Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            padding: 20px;
         }
-
         .order-details {
-            margin-bottom: 20px;
-            padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+        .order-item {
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
-    <h1>Kitchen Orders</h1>
-    <div id="orders-container"></div>
+    <h1>Kitchen Page</h1>
+
+    <div id="order-details-container">
+        <!-- Order details will be displayed here -->
+    </div>
 
     <script>
-        function parseQueryString() {
-            const queryString = window.location.search.slice(1);
-            const params = new URLSearchParams(queryString);
-            const orderDetails = {};
-            for (const [key, value] of params) {
-                if (key.startsWith('item')) {
-                    if (!orderDetails.items) {
-                        orderDetails.items = [];
-                    }
-                    orderDetails.items.push(JSON.parse(decodeURIComponent(value)));
-                } else {
-                    orderDetails[key] = value;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to handle POST requests
+            function handlePostRequest() {
+                // Check if the request method is POST
+                if (window.location.search.startsWith('?')) {
+                    // Extract query parameters
+                    const params = new URLSearchParams(window.location.search.substring(1));
+                    const orderDetails = JSON.parse(params.get('orderDetails'));
+                    
+                    // Display order details
+                    displayOrderDetails(orderDetails);
+                    
+                    // Example: Process the order (update database, send confirmation email, etc.)
+                    // Here, we're just logging to console for demonstration
+                    console.log('Order received:', orderDetails);
+                    
+                    // Example response (optional)
+                    const response = { status: 'Order received successfully!' };
+                    return JSON.stringify(response);
                 }
             }
-            return orderDetails;
-        }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const orderDetails = parseQueryString();
-            const ordersContainer = document.getElementById('orders-container');
+            // Function to display order details
+            function displayOrderDetails(order) {
+                const container = document.getElementById('order-details-container');
+                container.innerHTML = '';
 
-            const orderDiv = document.createElement('div');
-            orderDiv.className = 'order-details';
+                const orderInfo = document.createElement('div');
+                orderInfo.classList.add('order-details');
 
-            const tableNumber = document.createElement('p');
-            tableNumber.textContent = `Table Number: ${orderDetails.table}`;
-            orderDiv.appendChild(tableNumber);
+                const orderTable = document.createElement('p');
+                orderTable.textContent = `Table: ${order.table}`;
+                orderInfo.appendChild(orderTable);
 
-            const timestamp = document.createElement('p');
-            timestamp.textContent = `Timestamp: ${orderDetails.timestamp}`;
-            orderDiv.appendChild(timestamp);
+                const orderItemsList = document.createElement('ul');
+                order.items.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${item.name} x ${item.quantity} - ₹${item.price * item.quantity}`;
+                    orderItemsList.appendChild(listItem);
+                });
+                orderInfo.appendChild(orderItemsList);
 
-            const itemsList = document.createElement('ul');
-            orderDetails.items.forEach(item => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${item.name} x ${item.quantity} - ₹${item.price}`;
-                itemsList.appendChild(listItem);
-            });
-            orderDiv.appendChild(itemsList);
+                container.appendChild(orderInfo);
+            }
 
-            ordersContainer.appendChild(orderDiv);
+            // Call handlePostRequest function on load
+            handlePostRequest();
         });
     </script>
 </body>
