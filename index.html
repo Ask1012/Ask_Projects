@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atharv Kumbhar  Portfolio</title>
     <style>
+    /* Add this CSS to your existing styles */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in {
+    opacity: 0; /* Start invisible */
+    animation: slideIn 2s forwards; /* Animate on trigger */
+}
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -38,8 +54,8 @@
         }
 
         #hero {
-            background: url('hero.jpg') no-repeat center center/cover;
-            color: white;
+            
+              color: white;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -115,6 +131,7 @@
         form button {
             width: 80%;
         }
+        
         #imgcontainer{position: absolute;
             top:75px;
             left:120px;
@@ -137,7 +154,7 @@
     </header>
 
 <img id="imgcontainer" src="ask.jpg" >
-
+<br>
     <section id="hero">
         <div class="hero-content">
             <h1>Hello, I'm Atharv Kumbhar</h1>
@@ -146,13 +163,13 @@
         </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="slide-element">
         <h2>About Me</h2>
         <p style="color:white; border-radius:20px; background-color:grey; padding:20px;">
 I am a B.Sc Computer Science student at Sadguru Gadge Maharaj College (SGM) in Karad city, Maharashtra, India. With a strong foundation in computer science, I have honed my skills in various programming languages and technologies, including JavaScript, Java, CSS, HTML, and SQL.<br>
 In addition to my technical skills, I possess strong soft skills such as problem-solving, teamwork, and effective communication. I am passionate about learning and continuously improving my abilities to stay updated with the latest advancements in the field of technology.</p> </section>
 
-    <section id="projects">
+    <section id="projects" class="slide-element">
         <h2>Projects</h2>
         <div class="project-grid">
             <!-- Repeat this block for each project -->
@@ -171,11 +188,19 @@ In addition to my technical skills, I possess strong soft skills such as problem
         </div>
     </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul style="text-align:left;">
-            <li>JavaScript</li>
+    <section id="skills" class="slide-element" >
+        <h1 style="color:lightblue; ">Skills</h1>
+         <h3> Frontend</h3>
+        <ul style="text-align:left;">            
             <li>HTML & CSS</li>
+              <li>JavaScript</li>
+            <li>JAVA</li>
+            <li>SQL</li>
+            <!-- Add more skills as needed -->
+        </ul><br>
+          <h3> Backend</h3>
+        <ul style="text-align:left;">
+            <li>Java</li>          
             <li>JAVA</li>
             <li>SQL</li>
             <!-- Add more skills as needed -->
@@ -196,9 +221,7 @@ In addition to my technical skills, I possess strong soft skills such as problem
         </form>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Ask. All rights reserved.</p>
-    </footer>
+    
 
     <script>
         // Example of a simple smooth scrolling for internal links
@@ -211,6 +234,25 @@ In addition to my technical skills, I possess strong soft skills such as problem
                 });
             });
         });
+      // JavaScript for sliding effect
+document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('slide-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.slide-element').forEach(element => {
+        observer.observe(element);
+    });
+});
     </script>
 </body>
-</html>
+              </html>
