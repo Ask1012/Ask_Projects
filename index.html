@@ -3,230 +3,747 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atharv Kumbhar  Portfolio</title>
+    <title>College Canteen Menu</title>
     <style>
-    /* Add this CSS to your existing styles */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-150px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(10);
-    }
-}
+        /* Basic reset and global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.slide-in {
-    opacity: 0; /* Start invisible */
-    animation: slideIn 2s forwards; /* Animate on trigger */
-}
         body {
+         user-select:none;
+            -webkit-user-select:none;
+           -moz-user-select:none;
+           -ms-user-select:none;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: darkgrey;
-            background-color: #f9f9f9;
-            background-color:black;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+              margin: 20px;      
+                                      
         }
 
-        header {
-            background-color: #333;
-            padding: 10px 0;
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: grey;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        #hero {
-            
-              color: white;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        header { border-radius:20px;
             text-align: center;
+            background-color: blue;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+               background-color: pink;
+               
         }
 
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-        }
-
-        .btn {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        #about, #projects, #skills, #contact {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .project-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .project-card {
-            background-color: white;
-            margin: 10px;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            color:black;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        form {
-            display: flex;
+        main {
+               display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        form label, form input, form textarea {
+        .menu-section {
+         
             width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+              
+        }
+
+        .menu-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .menu-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .item-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .color-block {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .item-name {
+            flex: 1;
+        }
+          .item-price {   
+              position:relative; top:0px;flex: 1;
+             left:20px; 
+          
+       }
+        .item-quantity{
+        position:relative;
+            top:-10px;
+            left:35px;
+        }
+        .quantity-selector {
+          position:relative;
+           top:10px;
+            width: 30px;
+        }
+          
+        .table-buttons {
+            width:80%;            
+            justify-content:centre;
+            display: flex;
+            position:relative;
+             right:-60px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+              background-color: lightgrey;
+              padding:18px;
+          border-radius: 30px;
+        }
+
+        .table-button {
+            justify-content: flex-end;
+          
+            padding: 10px;
+            margin: 5px;
+            background-color: grey;
+            color: red;
+            background-color:white;
+            border: none;
+            border-radius: 9px;
+            cursor: pointer;
+        }
+
+        .selected-table {
+            background-color: black !important;
+        }
+
+        .order-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 400px;
+              
+        }
+
+        .order-button {
+            flex: 1;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: yellow;
+              color:black;
+            
+        }
+
+        .cancel-order {
+            flex: 1;
+            margin-left: 10px;
+            padding: 10px;
+            background-color: #ff6347;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          
+        }
+
+        .bill-section {
+              
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+            display: none;
+        }
+
+        .bill-section.visible {
+            display: block;
+              
+        }
+
+        .bill-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .bill-details {
             margin-bottom: 10px;
         }
 
-        form input, form textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .bill-details p {
+            margin: 5px 0;
         }
 
-        form button {
-            width: 80%;
+        .bill-total {
+            margin-top: 10px;
+            font-weight: bold;
         }
-        
-        #imgcontainer{position: absolute;
-            top:75px;
-            left:120px;
-            width:130px;
-            height:170px;
-            border-radius:15px;
-             }
+
+        .payment-options {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .payment-button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .payment-button:hover {
+            background-color: #4CAF50;
+        }
+
+        .offers { color:red;
+            text-align: center;
+            margin-top: 20px;
+            animation: blinker 1s linear infinite;
+          border:1px solid white;
+            padding:1px;
+              font-size:14px;
+                 position:relative;top:-7px;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        footer {
+            text-align: center;
+            background-color: #444;
+            color: #fff;
+            padding: 10px 0;
+            margin-top: 20px;
+            width: 100%;
+        }
+        h1{   text-shadow:1px 5px 8px black;
+         }
+        .hanging-page {
+           background-image: url('f2.jpg');
+               background-size:300px 350px; 
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px grey;
+            position: relative;
+            transform-origin: top center;
+            animation: sway 3s infinite ease-in-out;
+        }
+
+        .hanging-page:before,
+        .hanging-page:after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            width: 2px;
+            height: 10px;
+            background-color: #333;
+            transform: translateX(-50%);
+        }
+
+        .hanging-page:before {
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        .hanging-page:after {
+            transform: translateX(-50%) rotate(-45deg);
+        }
+
+        @keyframes sway {
+            0% {
+                transform: rotateZ(-5deg);
+            }
+            50% {
+                transform: rotateZ(5deg);
+            }
+            100% {
+                transform: rotateZ(-5deg);
+            }
+        }
+
+        .hanging-page:hover {
+            animation-play-state: paused;
+        }
+        .pin{ position: relative;
+                top:-20px; left:89px;
+              width:20px;
+          }
+           #ask{ position:relative;
+             left:242px;
+              top:30px;
+            color: #0F4C81;
+              width:20px;
+            }
+        h3{ padding:14px;
+           position:relative;
+           left:90px;
+           background-color:lightgreen;
+           color:white;
+           width:130px;
+           border-radius:8px;
+           }
+          #clgid{ font-size:13px;
+                position:relative;
+                 top:-5px;
+          }
+          
+        nav ul { 
+          
+          position:fixed;  
+          top:250px;
+          left:-2px;
+        }
+
+        nav ul li {
+            
+            align-items:right;
+              justify-content: flex-end;
+            width:70%;
+            align-items:right;
+            border-radius:1px 20px 5px;
+            padding:10px;
+             background-color:black;
+            margin: 5px;
+        }
+
+        nav ul li a {
+              
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+             font-size:12px;
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <nav>
+        <h1> स द् गु रू Canteen <br> (S G M)
+ </h1>             
+      <h5 id="ask"> Ask.com</h5>
+      </header>          
+    <a id="clgid" href="clg.html"><h7>More about college click here</h7></a>
+<div class="offers blink">              
+ <h2>Special Offers: 10% Off on Pizzas!</h2>
+</div>
+
+    <div class="table-buttons">
+            <button class="table-button" data-table="1">Table 1</button>
+            <button class="table-button" data-table="2">Table 2</button>
+            <button class="table-button" data-table="3">Table 3</button>
+            <button class="table-button" data-table="4">Table 4</button>
+            <button class="table-button" data-table="5">Table 5</button>
+            <button class="table-button" data-table="6">Table 6</button>
+        </div>  
+      
+<br><br>  <h3> Menu cards </h3>  <br> </p>
+          <main>
+          <h2 id="Fastfood"> ◾Fast food 👀</h2><br>
+         <section class="hanging-page" style="width:260px;">
+              
+            <div class="menu-list" style="wwidth:20px;" >
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #d8bfd8;">🥪</div>
+                    <span class="item-name">Sandwich</span>
+                   <span class="item-price"> ₹80</span> 
+                    <span class ="item-quantity" style="position: relative; left:25px;">Quantity:</span>
+                     <select class="quantity-selector" style="position: relative; left:-25px;" >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #f0e68c;">🍕</div>
+                    <span class="item-name">Pizza</span>
+                   <span class="item-price"> ₹120</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #ffb6c1;">🍔</div>
+                    <span class="item-name">HamBurger</span>
+                    <span class="item-price" style="position: relative; left: 8px;" > ₹80</span> 
+                    <span class ="item-quantity" style="position: relative; left:13px;">Quantity:</span>
+                    <select class="quantity-selector"  style="position: relative; left:-27px;" >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                  <div class="item-row">
+                    <div class="color-block" style="background-color: #f0e68c;">🌭</div>
+                    <span class="item-name">Hotdogs</span>
+                   <span class="item-price"> ₹80</span> 
+                    <span class ="item-quantity" style="position: relative; left:28px;">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #ffb6c1;">🍪</div>
+                    <span class="item-name">Waffles</span>
+                    <span class="item-price"> ₹80</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                    <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+        </section>    <br><br>
+         <h2 id="drink">> ◾Drinks 🥂 🍻</h2><br>
+        <section class="hanging-page">                     
+            <div class="menu-list">
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #ffd700;">🍵</div>
+                    <span class="item-name">चहा</span>
+                     <span class="item-price"> ₹10</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                    <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #afeeee;">☕</div>
+                    <span class="item-name">कॉफी</span>
+                    <span class="item-price"> ₹15</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                    <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                </div>
+        </section>  <br><br>  
+            <h2 id="colddrink"> ◾ Cold drinks 🍾</h2><br>
+          <section class="hanging-page">                        
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #90ee90;">🥛</div>
+                    <span class="item-name">ताक</span>
+                   <span class="item-price"> ₹20</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                 <div class="item-row">
+                    <div class="color-block" style="background-color: pink">🍶</div>
+                    <span class="item-name">Lassi</span>
+                   <span class="item-price"> ₹20</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                    <div class="color-block" style="background-color: lightcyan">🍋</div>
+                    <span class="item-name">Limca</span>
+                   <span class="item-price"> ₹20</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+              <div class="item-row">
+                    <div class="color-block" style="background-color: black">🍷</div>
+                    <span class="item-name">Coca-Cola</span>
+                   <span class="item-price"> ₹20</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                    <div class="color-block" style="background-color: lightblue">🥂</div>
+                    <span class="item-name">Appy-Fizz</span>
+                   <span class="item-price"> ₹20</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+        </section><br><br>
+        <h2 id="sanks"> ◾Snaks 🍱</h2><br>
+        <section class="hanging-page">
+              
+            <div class="menu-list">
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #ffcccb;">🍔</div>
+                    <span class="item-name">वडापाव</span>
+                   <span class="item-price"> ₹20</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                    <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #add8e6;">🍚</div>
+                    <span class="item-name">इडली</span>
+                   <span class="item-price"> ₹35</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #ffb6c1;">🍛</div>
+                    <span class="item-name">मिसळ</span>
+                  <span class="item-price"> ₹50</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                      <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                  <div class="color-block" style="background-color: #ff6347;">🥟</div>
+                    <span class="item-name">डोसा</span>
+                   <span class="item-price"> ₹30</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                  <div class="item-row">
+                  <div class="color-block" style="background-color: #ff6347;">🍱</div>
+                    <span class="item-name">पावभाजी</span>
+                   <span class="item-price"> ₹50</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                    <div class="color-block" style="background-color: lightcyan">🍩</div>
+                    <span class="item-name">मेंदूवडा</span>
+                   <span class="item-price"> ₹30</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <br><br>
+            <h2> ◾ Chaat 🍱</h2><br>
+          <section class="hanging-page">                        
+                <div class="item-row">
+                    <div class="color-block" style="background-color: #90ee90;">🍮</div>
+                    <span class="item-name">Panipuri</span>
+                   <span class="item-price"> ₹40</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                 <div class="item-row">
+                    <div class="color-block" style="background-color: pink">🍚</div>
+                    <span class="item-name">DahiPuri</span>
+                   <span class="item-price"> ₹40</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                
+              <div class="item-row">
+                    <div class="color-block" style="background-color: black">🍝</div>
+                    <span class="item-name">भेळ</span>
+                   <span class="item-price"> ₹50</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="item-row">
+                    <div class="color-block" style="background-color: lightblue">🍮</div>
+                    <span class="item-name">शेवपुरी</span>
+                   <span class="item-price"> ₹40</span> 
+                    <span class ="item-quantity">Quantity:</span>
+                     <select class="quantity-selector">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <nav id="menu">
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#Fastfood">Fastfood</a></li>
+                <li><a href="#drink">Drinks</a></li>
+                <li><a href="#colddrink">Cold Drinks</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+        </nav>  
+        <h4> Kindly select your table before placing Order </h4>
+        
+        
 
-<img id="imgcontainer" src="ask.jpg" >
-<br>
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Hello, I'm Atharv Kumbhar</h1>
-            <p>A passionate coder and developer.</p>
-            <a href="#projects" class="btn">View My Work</a>
+        <div class="order-buttons">
+            <button class="order-button">Place Order</button>
+            <button class="cancel-order">Cancel Order</button>
         </div>
-    </section>
 
-    <section id="about" class="slide-element">
-        <h2>About Me</h2>
-        <p style="color:white; border-radius:20px; background-color:grey; padding:20px;">
-I am a B.Sc Computer Science student at Sadguru Gadge Maharaj College (SGM) in Karad city, Maharashtra, India. With a strong foundation in computer science, I have honed my skills in various programming languages and technologies, including JavaScript, Java, CSS, HTML, and SQL.<br>
-In addition to my technical skills, I possess strong soft skills such as problem-solving, teamwork, and effective communication. I am passionate about learning and continuously improving my abilities to stay updated with the latest advancements in the field of technology.</p> </section>
-
-    <section id="projects" class="slide-element">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <!-- Repeat this block for each project -->
-            <div class="project-card">
-                <h3>Music site</h3>
-                 <a href="https://ask1012.github.io/Music_with_ask/" class="btn">View Project</a>
+        <div class="bill-section">
+            <h2>Bill</h2>
+            <div class="bill-details">
+                <p><strong>Table Number:</strong> <span id="table-number"></span></p>
+                <p><strong>Items:</strong></p>
+                <ul id="bill-items"></ul>
+                <p class="bill-total"><strong>Total:</strong><span id="total-amount"></span></p>
             </div>
-            <div class="project-card">
-                <h3>College Canteen</h3>
-                 <a href="https://ask1012.github.io/college-canteen-/" class="btn">View Project</a>
-            </div>
-            <div class="project-card">
-                <h3>SQL Generator</h3>
-                  <a href="https://ask1012.github.io/SQL-chatBot/" class="btn">View Project</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="slide-element" >
-        <h1 style="color:lightblue; ">Skills</h1>
-         <h3> Frontend</h3>
-        <ul style="text-align:left;">            
-            <li>HTML & CSS</li>
-              <li>JavaScript</li>
+            <div class="payment-options">
+                <button class="payment-button">Pay Online</button>
+             <button id="cashbutton" class="payment-button">pay with Cash</button>
+                 </div><br>  <p id="payment-status"></p>
             
-            <!-- Add more skills as needed -->
-        </ul><br>
-          <h3> Backend</h3>
-        <ul style="text-align:left;">
-            <li>Java</li>                                
-            <!-- Add more skills as needed -->
-        </ul>
-        <h3> Database</h3>
-        <ul style="text-align:left;">
-            <li>MySQL</li>                                
-            <!-- Add more skills as needed -->
-        </ul>
-    </section>
+        </div>
+         <br>
+ </main>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="a76c3563-8ffe-49c5-ad2e-8a221e18b963">
-            <label for="name">Name:</label>         
-            <input type="text" id="name" name="name" placeholder=" Name...";required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder=" E-mail..." required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit" class="btn">Send</button>
-        </form>
-    </section>
-<footer>
-@<a href="https://facebook.com" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 48 48">
+    <footer>
+Designed by Team ASK Contact us:<br>
+          @<a href="https://facebook.com" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 48 48">
 <linearGradient id="Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1" x1="9.993" x2="40.615" y1="9.993" y2="40.615" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2aa4f4"></stop><stop offset="1" stop-color="#007ad9"></stop></linearGradient><path fill="url(#Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1)" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path><path fill="#fff" d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z"></path>
 </svg></a> 
-     <a href="https://x.com/ak1074834" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 30 30">
+     <a href="https://twitter.com" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 30 30">
     <path d="M28,6.937c-0.957,0.425-1.985,0.711-3.064,0.84c1.102-0.66,1.947-1.705,2.345-2.951c-1.03,0.611-2.172,1.055-3.388,1.295 c-0.973-1.037-2.359-1.685-3.893-1.685c-2.946,0-5.334,2.389-5.334,5.334c0,0.418,0.048,0.826,0.138,1.215 c-4.433-0.222-8.363-2.346-10.995-5.574C3.351,6.199,3.088,7.115,3.088,8.094c0,1.85,0.941,3.483,2.372,4.439 c-0.874-0.028-1.697-0.268-2.416-0.667c0,0.023,0,0.044,0,0.067c0,2.585,1.838,4.741,4.279,5.23 c-0.447,0.122-0.919,0.187-1.406,0.187c-0.343,0-0.678-0.034-1.003-0.095c0.679,2.119,2.649,3.662,4.983,3.705 c-1.825,1.431-4.125,2.284-6.625,2.284c-0.43,0-0.855-0.025-1.273-0.075c2.361,1.513,5.164,2.396,8.177,2.396 c9.812,0,15.176-8.128,15.176-15.177c0-0.231-0.005-0.461-0.015-0.69C26.38,8.945,27.285,8.006,28,6.937z"></path>
 </svg></a> 
      <a href="https://www.instagram.com/atharvkumbharr?igsh=emYzdHhybXh2cDcw" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 48 48">
@@ -238,11 +755,204 @@ In addition to my technical skills, I possess strong soft skills such as problem
 
    <p> <a href="mailto:ak1074834@gmail.com">ask@gmail.com <br> Gauravdg@gmail.com</a> <br>| &#9743; Phone: 91 8767565920</p>
   
-   </footer>
-    
+        <p>&copy; 2024 College Canteen. All rights reserved.</p>
+    </footer>
 
     <script>
-        // Example of a simple smooth scrolling for internal links
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableButtons = document.querySelectorAll('.table-button');
+            const orderButton = document.querySelector('.order-button');
+            const cancelOrderButton = document.querySelector('.cancel-order');
+            const billSection = document.querySelector('.bill-section');
+            const tableNumberDisplay = document.getElementById('table-number');
+            const billItemsList = document.getElementById('bill-items');
+            const totalAmountDisplay = document.getElementById('total-amount');
+            const paymentStatus = document.getElementById('payment-status');
+
+            let selectedTable = null;
+            let orderItems = [];
+            let totalAmount = 0;
+            let finalAmount=0;
+            // Table selection
+            tableButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    selectedTable = button.dataset.table;
+                    tableButtons.forEach(btn => btn.classList.remove('selected-table'));
+                    button.classList.add('selected-table');
+                    tableNumberDisplay.textContent = selectedTable;
+                });
+            });
+orderButton.addEventListener('click', () => {
+                if (selectedTable === null) {
+                    alert('Please select a table first.');
+                    return;
+                }
+                
+                const menuSections = document.querySelectorAll('.hanging-page');
+
+                menuSections.forEach(section => {
+                    const menuItems = section.querySelectorAll('.item-row');
+                    
+                    menuItems.forEach(item => {
+                        const itemName = item.querySelector('.item-name').textContent;
+                        const quantity = parseInt(item.querySelector('.quantity-selector').value);
+                        const itemPrice =item.querySelector('.item-price').textContent;
+                      
+                        if (quantity > 0) {
+                            const existingItem = orderItems.find(order => order.name === itemName);
+                            if(existingItem) {
+                                existingItem.quantity = quantity;
+                           }
+                            else{
+                             
+                                orderItems.push({ name: itemName, quantity: quantity ,price:itemPrice});
+                            }
+                        }
+                      });
+                  });
+                if (orderItems.length === 0) {
+                                  alert('Please place an order first.');
+                                  return;
+                            }
+                // Update bill
+                updateBill();
+                totalAmount=0;
+                // Show bill section
+                billSection.classList.add('visible');
+               resetQuantities();
+            });
+            // Cancel order
+            cancelOrderButton.addEventListener('click', () => {
+                orderItems = [];
+                totalAmount=0;
+                selectedTable = null;
+                tableButtons.forEach(btn => btn.classList.remove('selected-table'));
+                billSection.classList.remove('visible');
+                clearBill();
+                paymentStatus.textContent = '';
+                resetQuantities();
+                
+            });
+
+            // Update bill details
+            function updateBill() {
+                billItemsList.innerHTML = '';
+                
+                orderItems.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name} ${item.price} x ${item.quantity} - ₹${(getItemPrice(item.name) * item.quantity).toFixed(2)}`;
+                    billItemsList.appendChild(li);
+                    totalAmount += getItemPrice(item.name) * item.quantity; // Assuming a function getItemPrice() exists to get item prices
+                });
+                finalAmount= totalAmount;
+                totalAmountDisplay.textContent ="  ₹"+ finalAmount.toFixed(2);
+                   totalAmount=0;
+            }
+
+
+            // Clear bill details 
+            function clearBill() {
+                billItemsList.innerHTML = '';
+                totalAmountDisplay.textContent = '';
+            }
+
+            // Reset quantity selectors to zero
+            function resetQuantities() {
+                const quantitySelectors = document.querySelectorAll('.quantity-selector');
+                quantitySelectors.forEach(selector => {
+                    selector.value = '0';
+                });
+            }
+
+            // Payment with Google Pay
+            const paymentButton = document.querySelector('.payment-button');
+            paymentButton.addEventListener('click', () => {
+                if (orderItems.length === 0) {
+                    alert('Please place an order first.');
+                    return;
+                } 
+                
+                window.location.href=`upi://pay?pa=ak1074834@oksbi&pn=Atharv%20Kumbhar&am=${finalAmount}&cu=INR`;
+                setTimeout(() => {
+                    paymentStatus.textContent = 'Payment successful. Thank you!';
+                    setTimeout(() => {
+                        paymentStatus.textContent = '';
+                        finalAmount=0;
+                        cancelOrderButton.click(); // Automatically cancel order after successful payment
+                    }, 3000); // Display thank you message for 3 seconds
+                }, 2000);
+                // Simulate payment processing time of 2 seconds
+            });
+            const cashButton = document.getElementById('cashbutton');
+            cashButton.addEventListener('click', () => {
+                if (orderItems.length === 0) {
+                    alert('Please place an order first.');
+                    return;
+                } 
+                setTimeout(() => {
+                    paymentStatus.textContent = 'Order placed. Thank you!';
+                    setTimeout(() => {
+                        paymentStatus.textContent = '';
+                        finalAmount=0;
+                        cancelOrderButton.click(); // Automatically cancel order after successful payment
+                    }, 1000); // Display thank you message for 3 seconds
+                }, 1000);
+                // Simulate payment processing time of 2 seconds
+            });
+            // Function to get item price (replace with actual price fetching logic)
+            function getItemPrice(itemName) {
+                // Replace with actual item price logic based on itemName
+                switch (itemName) {
+                    case 'चहा':
+                        return 10;
+                    case 'कॉफी':
+                        return 15;
+                    case 'ताक':
+                        return 20;
+                    case 'Lassi':
+                        return 20;
+                    case 'Limca':
+                        return 20;
+                    case 'Coca-Cola':
+                        return 20;
+                    case 'Appy-Fizz':
+                        return 20;                    
+                    case 'वडापाव':
+                        return 20;
+                    case 'इडली':
+                        return 35;
+                    case 'मिसळ':
+                        return 50;
+                     case 'पावभाजी':
+                        return 50;
+                    case 'डोसा':
+                        return 30;
+                    case 'Pizza':
+                        return 120;
+                    case 'HamBurger':
+                        return 80;
+                    case 'Sandwich':
+                        return 80;
+                    case 'Waffles':
+                        return 80;
+                    case 'Hotdogs':
+                        return 80;
+                    case 'मेंदूवडा':
+                        return 30;
+                    case 'Pizza':
+                        return 50;
+                    case 'Panipuri':
+                        return 40;
+                    case 'शेवपुरी':
+                        return 40;
+                    case 'भेळ':
+                        return 50;
+                    case 'DahiPuri':
+                        return 40;
+                    default:
+                        return 0;                    
+                }
+            }
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -252,25 +962,8 @@ In addition to my technical skills, I possess strong soft skills such as problem
                 });
             });
         });
-      // JavaScript for sliding effect
-document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('slide-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.slide-element').forEach(element => {
-        observer.observe(element);
     });
-});
-    </script>
+  </script>
 </body>
-              </html>
+</html>        
+                                      
