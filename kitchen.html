@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .order-details {
+            background-image: url('menu.jpg');
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            margin-bottom: 20px;
+            box-shadow: 1px 3px 6px grey;
+        }
+        .offers {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+            animation: blinker 1s linear infinite;
+            border: 1px solid white;
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        @keyframes blinker {
+            50% {
+                position: relative;
+                top: -20px;
+                opacity: 0;
+            }
+        }
+        #audio1{
+            background-color:cyan;
+            display:flex;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio1" src="order.mp3" controls autoplay> </audio>
+    <h1 class="offers blink"> Hurry up foodies are Huuuuungry</h1>
+
+
+    <div id="order-details-container">
+        <!-- Order details will be displayed here -->
+    </div>
+
+    <script>
+        
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to retrieve and display order details from the server
+    const audio = document.getElementById('audio1');
+ audio.play();
+    audio.pause();
+                        let previousOrderDetails = [];
+
+        function displayOrderDetails() {
+            fetch('/order')
+                .then(response => response.json())
+                .then(orderDetails => {
+                    const container = document.getElementById('order-details-container');
+                    container.innerHTML = '';
+
+                    if (orderDetails.length > 0) {
+                        orderDetails.forEach(order => {
+                            const orderInfo = document.createElement('div');
+                            orderInfo.classList.add('order-details');
+
+                            const orderTable = document.createElement('p');
+                            orderTable.textContent = `Table: ${order.table}`;
+                            orderInfo.appendChild(orderTable);
+
+                            if (order.items && order.items.length > 0) {
+                                const orderItemsList = document.createElement('ul');
+                                order.items.forEach(item => {
+                                    const listItem = document.createElement('li');
+                                    listItem.textContent = `${item.name} x ${item.quantity} - ₹${item.price * item.quantity}`;
+                                    orderItemsList.appendChild(listItem);
+                                });
+                                orderInfo.appendChild(orderItemsList);
+                            } else {
+                                const noItemsMessage = document.createElement('p');
+                                noItemsMessage.textContent = 'No items in the order.';
+                                orderInfo.appendChild(noItemsMessage);
+                            }
+
+                            container.appendChild(orderInfo);
+                        });
+
+                        // Check for new orders
+                        if (JSON.stringify(orderDetails) !== JSON.stringify(previousOrderDetails)) {
+                            const audio = document.getElementById('audio1');
+                            audio.play();
+                            previousOrderDetails = orderDetails;
+                        }
+                    } else {
+                        container.textContent = 'No order details available.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error retrieving order details:', error);
+                    const container = document.getElementById('order-details-container');
+                    container.innerHTML = 'Error retrieving order details. Please try again later.';
+                });
+        }
+
+        // Fetch order details every 5 seconds
+        setInterval(displayOrderDetails, 5000);
+        displayOrderDetails();
+});
+                            </script>
+</body>
+</html>
